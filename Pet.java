@@ -3,20 +3,23 @@ import java.util.TimerTask;
 
 public class Pet {
     private String name;
-    private int weight;
-    private double food;
+    private int food;
+    private int energy;
+    private int happiness;
+    
 
-    public Pet(String n, int w){
+    public Pet(String n){
         name = n;
-        weight = w;
-        food = 100.0;
+        food = 100;
+        health = 100;
+        happiness = 100;
 
         Timer timer = new Timer();
         
         TimerTask task = new TimerTask() {
             @Override
             public void run() {
-                setFood();
+                decrease();
             }
         };
 
@@ -24,10 +27,25 @@ public class Pet {
     }
 
     public void feed(){
-        food = 100.0;
+        food = 100;
+        System.out.print(name + " is full!");
     }
 
-    protected void setFood(){
-        food -= 1;
+    public void clean(){
+        energy += 20;
+    }
+
+    public void sleep(){
+        energy = 100;
+    }
+
+    public void play(){
+        happiness = 100;
+    }
+
+    protected void decrease(){
+        food -= 2;
+        energy -=4;
+        happiness -= 3;
     }
 }
