@@ -45,6 +45,9 @@ public class Pet {
 
     protected void decrease(){
         food -= 2;
+        if(food < 50){
+            System.out.print("I'm hungry!");
+        }
         energy -=4;
         happiness -= 3;
     }
