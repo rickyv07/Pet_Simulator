@@ -6,6 +6,7 @@ public class Pet {
     private int food;
     private int energy;
     private int happiness;
+    private int health;
     
 
     public Pet(String n){
