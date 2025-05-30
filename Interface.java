@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.imageio.*;
 
+
 public class Interface extends JFrame implements ActionListener {
     private JTextField inputField;
     private JTextArea outputArea;
@@ -52,7 +53,7 @@ public class Interface extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == processButton) {
-            outputArea.append("fed!\n");
+            outputArea.append("fed!");
         }
     }
 }
