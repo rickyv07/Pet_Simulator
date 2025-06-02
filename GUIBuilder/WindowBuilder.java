@@ -1,27 +1,11 @@
 import javax.swing.*;
-import javax.swing.border.Border;
+import java.awt.Color;
+import helper_classes.*;
 
-import helper_classes.CustomFontLoader;
-import helper_classes.OnClickEventHelper;
-import helper_classes.OnFocusEventHelper;
-import helper_classes.RoundedBorder;
+public class WindowBuilder {
+  public static void main(String[] args) {
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import javax.imageio.*;
-
-
-public class Interface extends JFrame implements ActionListener {
-    private JTextField inputField;
-    private JTextArea outputArea;
-    private JButton processButton;
-    private Pet currentPet;
-
-
-    public Interface(Pet p) {
-
-     JFrame frame = new JFrame("My Talking Hong");
+     JFrame frame = new JFrame("My Awesome Window");
      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
      frame.setSize(504, 271);
      JPanel panel = new JPanel();
@@ -48,20 +32,22 @@ public class Interface extends JFrame implements ActionListener {
      OnClickEventHelper.setOnClickColor(feedButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
      panel.add(feedButton);
 
-     JLabel petName = new JLabel("");
+     JTextArea petName = new JTextArea("");
      petName.setBounds(11, 12, 100, 33);
      petName.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      petName.setBackground(Color.decode("#ffe7bf"));
      petName.setForeground(Color.decode("#73664e"));
      petName.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+     OnFocusEventHelper.setOnFocusText(petName, "Your long Input!", Color.decode("#000"),   Color.decode("#73664e"));
      panel.add(petName);
 
-     JLabel petBreed = new JLabel("");
-     petBreed.setBounds(11, 54, 100, 33);
+     JTextArea petBreed = new JTextArea("");
+     petBreed.setBounds(11, 59, 100, 33);
      petBreed.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      petBreed.setBackground(Color.decode("#ffe7bf"));
      petBreed.setForeground(Color.decode("#73664e"));
      petBreed.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+     OnFocusEventHelper.setOnFocusText(petBreed, "Your long Input!", Color.decode("#000"),   Color.decode("#73664e"));
      panel.add(petBreed);
 
      JButton goBackButton = new JButton("BACK");
@@ -80,41 +66,29 @@ public class Interface extends JFrame implements ActionListener {
      outputArea.setBackground(Color.decode("#ffe7bf"));
      outputArea.setForeground(Color.decode("#73664e"));
      outputArea.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     outputArea.setEditable(false);
      OnFocusEventHelper.setOnFocusText(outputArea, "Your long Input!", Color.decode("#000"),   Color.decode("#73664e"));
      panel.add(outputArea);
 
-     JLabel ageLabel = new JLabel("");
-     ageLabel.setBounds(121, 12, 100, 33);
-     ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
-     ageLabel.setBackground(Color.decode("#ffe7bf"));
-     ageLabel.setForeground(Color.decode("#73664e"));
-     ageLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     panel.add(ageLabel);
+     JTextArea element7 = new JTextArea("");
+     element7.setBounds(121, 12, 100, 33);
+     element7.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
+     element7.setBackground(Color.decode("#ffe7bf"));
+     element7.setForeground(Color.decode("#73664e"));
+     element7.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+     OnFocusEventHelper.setOnFocusText(element7, "Your long Input!", Color.decode("#000"),   Color.decode("#73664e"));
+     panel.add(element7);
 
-     JLabel hungerLabel = new JLabel("");
-     hungerLabel.setBounds(120, 54, 100, 33);
-     hungerLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
-     hungerLabel.setBackground(Color.decode("#ffe7bf"));
-     hungerLabel.setForeground(Color.decode("#73664e"));
-     hungerLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     panel.add(hungerLabel);
-
-     ImageIcon imageIcon = new ImageIcon("cat.jpg");
-     JLabel imageLabel = new JLabel(imageIcon);
-     imageLabel.setBounds(250,0,200,200);
-     panel.add(imageLabel);
+     JTextArea element8 = new JTextArea("");
+     element8.setBounds(120, 54, 100, 33);
+     element8.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
+     element8.setBackground(Color.decode("#ffe7bf"));
+     element8.setForeground(Color.decode("#73664e"));
+     element8.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+     OnFocusEventHelper.setOnFocusText(element8, "Your long Input!", Color.decode("#000"),   Color.decode("#73664e"));
+     panel.add(element8);
 
      frame.add(panel);
      frame.setVisible(true);
 
-    }
-
-    
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == processButton) {
-            outputArea.append(currentPet.feed());
-        }
-    }
+  }
 }
