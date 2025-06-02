@@ -26,7 +26,7 @@ public class Interface extends JFrame implements ActionListener {
      frame.setSize(504, 271);
      JPanel panel = new JPanel();
      panel.setLayout(null);
-     panel.setBackground(Color.decode("#f4c064"));
+     panel.setBackground(Color.decode("#edd5ad"));
 
      JButton petButton = new JButton("PET");
      petButton.setBounds(370, 192, 106, 28);
