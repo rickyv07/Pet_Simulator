@@ -27,9 +27,9 @@ public class Pet {
         timer.scheduleAtFixedRate(task, 2000, 4000);
     }
 
-    public void feed(){
+    public String feed(){
         food = 100;
-        System.out.print(name + " is full!");
+        return name + " is full!\n";
     }
 
     public void clean(){

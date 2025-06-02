@@ -11,13 +11,18 @@ public class Interface extends JFrame implements ActionListener {
     private JTextField inputField;
     private JTextArea outputArea;
     private JButton processButton;
-    private String currentPet;
+    private Pet currentPet;
 
-    public Interface() {
+
+    public Interface(Pet p) {
         setTitle("Pet Simulator");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(400, 300);
         setLayout(new BorderLayout());
+        currentPet = p;
+
+        
+
 
 
         // Output Panel
@@ -53,7 +58,7 @@ public class Interface extends JFrame implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == processButton) {
-            outputArea.append("fed!");
+            outputArea.append(currentPet.feed());
         }
     }
 }
