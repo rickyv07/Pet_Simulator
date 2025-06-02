@@ -3,6 +3,7 @@ public class Main{
 
         System.out.println("Welcome to Pet Simulator!");
         Interface gui = new Interface();
+        Cat myPet = new Cat("NyanCat");
 
 }
 }
