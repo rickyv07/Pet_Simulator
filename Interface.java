@@ -10,6 +10,7 @@ public class Interface extends JFrame implements ActionListener {
     private JTextField inputField;
     private JTextArea outputArea;
     private JButton processButton;
+    private String currentPet;
 
     public Interface() {
         setTitle("Pet Simulator");
@@ -25,7 +26,6 @@ public class Interface extends JFrame implements ActionListener {
         
         JPanel gifPanel = new JPanel();
         ImageIcon icon = new ImageIcon("cat.jpg");
-        ;
         JLabel gifLabel = new JLabel();
         gifLabel.setIcon(icon);
         gifPanel.add(gifLabel);
