@@ -6,5 +6,8 @@ public class Cat extends Pet{
         super(n);
         breed = b;
     }
+    public String getName(){
+        return "Cat";
+    }
 
 }

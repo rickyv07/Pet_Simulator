@@ -44,6 +44,14 @@ public class Pet {
         happiness = 100;
     }
 
+    public boolean getMood(){
+        if(happiness>50){
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     protected void decrease(){
         food -= 2;
         if(food < 50){
