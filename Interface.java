@@ -65,7 +65,7 @@ public class Interface extends JFrame implements ActionListener {
 
     @Override
     public void mouseReleased(java.awt.event.MouseEvent e) {
-        imageLabel.setIcon(getScaledIcon("Assets/MattHapp.png", 100, 100));
+        imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
     }
 });
      // Feed Button
@@ -139,7 +139,7 @@ public class Interface extends JFrame implements ActionListener {
      panel.add(hungerLabel);
 
      // Pet Image
-     imageIcon = getScaledIcon("Assets/MattHapp.png", 100, 100);
+     imageIcon = getScaledIcon("Assets/MattHappy.png", 100, 100);
      imageLabel = new JLabel(imageIcon);
      imageLabel.setBounds(260,-20,200,200);
      panel.add(imageLabel);
