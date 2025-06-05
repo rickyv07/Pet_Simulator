@@ -52,6 +52,10 @@ public class Pet {
         }
     }
 
+    public String getName(){
+        return name;
+    }
+
     protected void decrease(){
         food -= 2;
         if(food < 50){
