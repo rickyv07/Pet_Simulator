@@ -35,6 +35,7 @@ public class Interface extends JFrame implements ActionListener {
      panel.setLayout(null);
      panel.setBackground(Color.decode("#edd5ad"));
 
+     // Pet Button
      petButton = new JButton("PET");
      petButton.setBounds(370, 190, 106, 29);
      petButton.setBackground(Color.decode("#bca8e4"));
@@ -42,6 +43,7 @@ public class Interface extends JFrame implements ActionListener {
      petButton.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      petButton.setBorder(new RoundedBorder(4, Color.decode("#3d364a"), 1));
      petButton.setFocusPainted(false);
+     // Click events
      petButton.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
         public void mousePressed(java.awt.event.MouseEvent e) {
@@ -50,7 +52,7 @@ public class Interface extends JFrame implements ActionListener {
     
         @Override
         public void mouseReleased(java.awt.event.MouseEvent e) {
-            imageLabel.setIcon(getScaledIcon("Assets/MattHapp.png", 100, 100));
+            imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
         }
     });
      OnClickEventHelper.setOnClickColor(petButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
@@ -66,7 +68,7 @@ public class Interface extends JFrame implements ActionListener {
         imageLabel.setIcon(getScaledIcon("Assets/MattHapp.png", 100, 100));
     }
 });
-
+     // Feed Button
      feedButton = new JButton("FEED");
      feedButton.setBounds(256, 190, 106, 29);
      feedButton.setBackground(Color.decode("#bca8e4"));
@@ -76,7 +78,8 @@ public class Interface extends JFrame implements ActionListener {
      feedButton.setFocusPainted(false);
      OnClickEventHelper.setOnClickColor(feedButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
      panel.add(feedButton);
-
+     
+     // Pet Name Label
      petName = new JLabel("");
      petName.setBounds(11, 12, 100, 33);
      petName.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
@@ -84,7 +87,8 @@ public class Interface extends JFrame implements ActionListener {
      petName.setForeground(Color.decode("#73664e"));
      petName.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
      panel.add(petName);
-
+     
+     // Pet Breed Label
      petBreed = new JLabel("");
      petBreed.setBounds(11, 54, 100, 33);
      petBreed.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
@@ -93,6 +97,7 @@ public class Interface extends JFrame implements ActionListener {
      petBreed.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
      panel.add(petBreed);
 
+     // Back to Menu Button
      goBackButton = new JButton("BACK");
      goBackButton.setBounds(5, 204, 102, 27);
      goBackButton.setBackground(Color.decode("#bca8e4"));
@@ -104,6 +109,7 @@ public class Interface extends JFrame implements ActionListener {
      OnClickEventHelper.setOnClickColor(goBackButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
      panel.add(goBackButton);
 
+     // Output Area
      outputArea = new JTextArea("");
      outputArea.setBounds(12, 115, 202, 79);
      outputArea.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
@@ -114,6 +120,7 @@ public class Interface extends JFrame implements ActionListener {
      OnFocusEventHelper.setOnFocusText(outputArea, "", Color.decode("#000"),   Color.decode("#73664e"));
      panel.add(outputArea);
 
+     // Pet Age Label
      ageLabel = new JLabel("");
      ageLabel.setBounds(121, 12, 100, 33);
      ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
@@ -121,7 +128,8 @@ public class Interface extends JFrame implements ActionListener {
      ageLabel.setForeground(Color.decode("#73664e"));
      ageLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
      panel.add(ageLabel);
-
+     
+     // Pet Hunger Label
      hungerLabel = new JLabel("");
      hungerLabel.setBounds(120, 54, 100, 33);
      hungerLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
@@ -130,7 +138,7 @@ public class Interface extends JFrame implements ActionListener {
      hungerLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
      panel.add(hungerLabel);
 
-     
+     // Pet Image
      imageIcon = getScaledIcon("Assets/MattHapp.png", 100, 100);
      imageLabel = new JLabel(imageIcon);
      imageLabel.setBounds(260,-20,200,200);
