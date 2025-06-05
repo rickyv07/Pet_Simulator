@@ -1,10 +1,7 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import helper_classes.CustomFontLoader;
-import helper_classes.OnClickEventHelper;
-import helper_classes.OnFocusEventHelper;
-import helper_classes.RoundedBorder;
+
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -120,14 +117,14 @@ public class Interface extends JFrame implements ActionListener {
      OnFocusEventHelper.setOnFocusText(outputArea, "", Color.decode("#000"),   Color.decode("#73664e"));
      panel.add(outputArea);
 
-     // Pet Age Label
-     ageLabel = new JLabel("");
-     ageLabel.setBounds(121, 12, 100, 33);
-     ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
-     ageLabel.setBackground(Color.decode("#ffe7bf"));
-     ageLabel.setForeground(Color.decode("#73664e"));
-     ageLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     panel.add(ageLabel);
+    //  // Pet Age Label
+    //  ageLabel = new JLabel("");
+    //  ageLabel.setBounds(121, 12, 100, 33);
+    //  ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
+    //  ageLabel.setBackground(Color.decode("#ffe7bf"));
+    //  ageLabel.setForeground(Color.decode("#73664e"));
+    //  ageLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+    //  panel.add(ageLabel);
      
      // Pet Hunger Label
      hungerLabel = new JLabel("");
