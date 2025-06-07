@@ -96,12 +96,14 @@ public class Interface extends JFrame implements ActionListener {
      petButton.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
         public void mousePressed(java.awt.event.MouseEvent e) {
-            imageLabel.setIcon(new ImageIcon("Assets/petMattHappy.gif"));
+            String mood = ((MattHong) currentPet).getState();
+            imageLabel.setIcon(new ImageIcon("Assets/pet"+mood+".gif"));
         }
     
         @Override
         public void mouseReleased(java.awt.event.MouseEvent e) {
-            imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
+            String mood = ((MattHong) currentPet).getState();
+            imageLabel.setIcon(getScaledIcon("Assets/"+mood+".png", 100, 100));
         }
     });
      OnClickEventHelper.setOnClickColor(petButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
