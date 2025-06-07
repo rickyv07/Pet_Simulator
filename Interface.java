@@ -1,10 +1,8 @@
 import javax.swing.*;
 import javax.swing.border.Border;
 
-import helper_classes.CustomFontLoader;
-import helper_classes.OnClickEventHelper;
-import helper_classes.OnFocusEventHelper;
-import helper_classes.RoundedBorder;
+import Characters.MattHong;
+import Characters.Pet;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

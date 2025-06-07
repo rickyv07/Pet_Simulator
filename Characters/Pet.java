@@ -1,3 +1,4 @@
+package Characters;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -50,6 +51,10 @@ public class Pet {
         } else {
             return false;
         }
+    }
+
+    public String getName(){
+        return name;
     }
 
     protected void decrease(){

@@ -1,5 +1,3 @@
-package helper_classes;
-
 import java.awt.Color;
 import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;

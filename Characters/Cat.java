@@ -1,3 +1,4 @@
+package Characters;
 public class Cat extends Pet{
 
     private String breed;
@@ -6,8 +7,6 @@ public class Cat extends Pet{
         super(n);
         breed = b;
     }
-    public String getName(){
-        return "Cat";
-    }
+    
 
 }

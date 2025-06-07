@@ -1,6 +1,5 @@
 import javax.swing.*;
 import java.awt.Color;
-import helper_classes.*;
 
 public class WindowBuilder {
   public static void main(String[] args) {
