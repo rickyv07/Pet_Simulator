@@ -1,5 +1,10 @@
+package GUIBuilder;
+
 import javax.swing.*;
 import java.awt.Color;
+import GUIBuilder.helper_classes.CustomFontLoader;
+import GUIBuilder.helper_classes.OnClickEventHelper;
+import GUIBuilder.helper_classes.RoundedBorder;
 
 public class WindowBuilder {
   public static void main(String[] args) {

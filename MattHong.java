@@ -1,4 +1,4 @@
-package Characters;
+
 public class MattHong extends Pet {
     
     public MattHong(){

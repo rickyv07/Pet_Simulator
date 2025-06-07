@@ -1,3 +1,4 @@
+package GUIBuilder.helper_classes;
 import java.awt.*;
 import javax.swing.border.Border;
 
