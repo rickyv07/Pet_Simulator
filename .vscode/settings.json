@@ -3,7 +3,8 @@
         "GUIBuilder\\helper_classes",
         ".",
         "GUIBuilder",
-        "Characters"
+        "Characters",
+        "ui"
     ],
     "java.project.referencedLibraries": []
 }
