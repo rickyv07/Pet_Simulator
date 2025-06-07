@@ -188,7 +188,6 @@ public class Interface extends JFrame implements ActionListener {
      frame.add(petPanel);
      petPanel.setVisible(false);
      
-     currentPet = new MattHong();
     }
 
     public static ImageIcon getScaledIcon(String imagePath, int width, int height) {
@@ -198,16 +197,20 @@ public class Interface extends JFrame implements ActionListener {
     }
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == goBackButton) {
+        if (e.getSource() == feedButton) {
             outputArea.append(currentPet.feed());
-            System.out.println("Process");
         }
         if(e.getSource() == petButton) {
             imageLabel.setIcon(new ImageIcon("Assets/pet"+currentPet.getMood()+".gif"));
             
         }
+        if (e.getSource() == goBackButton) {
+            petPanel.setVisible(false);
+            startPanel.setVisible(true);
+        }
         if(e.getSource() == pickHong){
             currentPet = new MattHong();
+            imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
             petPanel.setVisible(true);
             startPanel.setVisible(false);
         }
