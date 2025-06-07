@@ -2,7 +2,8 @@
     "java.project.sourcePaths": [
         "GUIBuilder\\helper_classes",
         ".",
-        "GUIBuilder"
+        "GUIBuilder",
+        "Characters"
     ],
     "java.project.referencedLibraries": []
 }
