@@ -7,6 +7,13 @@ public class Cat extends Pet{
         super(n);
         breed = b;
     }
-    
+        public String getState(){
+        if(super.getMood()){
+           return "MattHappy"; 
+        } else {
+            return "MattSad";
+        }
+        
+    }
 
 }
