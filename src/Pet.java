@@ -29,7 +29,7 @@ public abstract class Pet {
             }
         };
 
-        timer.scheduleAtFixedRate(task, 2000, 4000);
+        timer.scheduleAtFixedRate(task, 2000, 2000);
     }
 
     public void setInterface(Interface gui){
