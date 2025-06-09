@@ -14,7 +14,7 @@ public class Interface extends JFrame implements ActionListener {
     private JTextArea outputArea;
     private JButton goBackButton;
     private Pet currentPet;
-    private JLabel ageLabel;
+    private JLabel happinessLabel;
     private JButton petButton;
     private JButton feedButton;
     private JLabel petName;
@@ -175,14 +175,14 @@ public class Interface extends JFrame implements ActionListener {
     scrollPane.setBorder(null); // optional: removes default border
     petPanel.add(scrollPane);
 
-     // Pet Age Label
-     ageLabel = new JLabel("Age: 0");
-     ageLabel.setBounds(121, 12, 100, 33);
-     ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
-     ageLabel.setBackground(Color.decode("#ffe7bf"));
-     ageLabel.setForeground(Color.decode("#73664e"));
-     ageLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     petPanel.add(ageLabel);
+     // Happiness Label
+     happinessLabel = new JLabel("Happiness: 100");
+     happinessLabel.setBounds(121, 12, 100, 33);
+     happinessLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
+     happinessLabel.setBackground(Color.decode("#ffe7bf"));
+     happinessLabel.setForeground(Color.decode("#73664e"));
+     happinessLabel.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+     petPanel.add(happinessLabel);
      
      // Pet Hunger Label
      hungerLabel = new JLabel("Hunger: 0");
@@ -208,7 +208,7 @@ public class Interface extends JFrame implements ActionListener {
         if (currentPet != null) {
             petName.setText("Name: " + currentPet.getName());
             petBreed.setText("Breed: " + currentPet.getClass().getSimpleName());
-            ageLabel.setText("Age: " + currentPet.getAge());
+            happinessLabel.setText("Happiness: " + currentPet.getHappiness());
             hungerLabel.setText("Hunger: " + currentPet.getHunger());
             
         }
