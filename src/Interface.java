@@ -204,6 +204,10 @@ public class Interface extends JFrame implements ActionListener {
      
     }
 
+    public void updateOutputArea(String txt){
+        outputArea.append(txt);
+    }
+
     public void updatePetInfo() {
         if (currentPet != null) {
             petName.setText("Name: " + currentPet.getName());

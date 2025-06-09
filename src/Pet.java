@@ -64,6 +64,9 @@ public abstract class Pet {
     }
 
     public int getHappiness(){
+        if(happiness < 50){
+            gui.updateOutputArea("Play with me! ╥﹏╥\n");
+        }
         return happiness;
     }
 
@@ -73,8 +76,7 @@ public abstract class Pet {
 
     public int getHunger(){
         if(food < 50){
-            
-            System.out.print("I'm hungry!");
+            gui.updateOutputArea("I'm hungry!\n");
         }
         return food;
     }
@@ -85,8 +87,16 @@ public abstract class Pet {
     public abstract String getState(); 
 
     protected void decrease(){
-        food -= 4;
-        energy -=4;
-        happiness -= 3;
+        if (food >0) {
+            food -= 4; 
+        }
+        
+        if (happiness >0) {
+            happiness -= 5; 
+        }
+
+        if (energy > 0){
+            energy -=4;
+        }
     }
 }
