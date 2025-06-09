@@ -8,7 +8,6 @@ public abstract class Pet {
     private int energy;
     private int happiness;
     private int health;
-    private int age;
     private Interface gui;
     
 
@@ -17,7 +16,6 @@ public abstract class Pet {
         food = 100;
         health = 100;
         happiness = 100;
-        age = 0;
 
         Timer timer = new Timer();
         
@@ -70,9 +68,6 @@ public abstract class Pet {
         return food;
     }
 
-    public int getAge(){
-        return age;
-    }
     public void update(Interface gui){
         gui.updatePetInfo();
     }
