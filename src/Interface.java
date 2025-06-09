@@ -30,6 +30,7 @@ public class Interface extends JFrame implements ActionListener {
     private Cat cat;
     private Dog dog;
     private MattHong mattHong;
+    
 
     public Interface() {
 
@@ -106,8 +107,7 @@ public class Interface extends JFrame implements ActionListener {
         public void mouseReleased(java.awt.event.MouseEvent e) {
             String mood = currentPet.getState();
             if(currentPet.getClass() == Cat.class) {
-                System.out.println("Cat mood: " + mood);
-                imageLabel.setIcon(getScaledIcon("Assets/"+mood+".gif", 100, 100));
+                imageLabel.setIcon(new ImageIcon("Assets/CatHappy.gif"));
             }
             else {
                 imageLabel.setIcon(getScaledIcon("Assets/"+mood+".png", 100, 100));
@@ -234,7 +234,10 @@ public class Interface extends JFrame implements ActionListener {
         }
         if(e.getSource() == pickHong){
             System.out.println("You picked Matt Hong!");
-            mattHong = new MattHong();
+            if(mattHong == null){
+                mattHong = new MattHong();
+            }
+            
             currentPet = mattHong;
             currentPet.setInterface(this);
             imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
@@ -243,7 +246,11 @@ public class Interface extends JFrame implements ActionListener {
         }
         if(e.getSource() == pickCat){
 
-            cat = new Cat();
+            if(cat==null){
+                cat = new Cat();
+            }
+            
+            
             currentPet = cat;
             currentPet.setInterface(this);
             imageLabel.setIcon(new ImageIcon("Assets/CatHappy.gif"));
