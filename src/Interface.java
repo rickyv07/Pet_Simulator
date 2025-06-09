@@ -1,5 +1,3 @@
-import javax.swing.*;
-import javax.swing.border.Border;
 
 import GUIBuilder.helper_classes.CustomFontLoader;
 import GUIBuilder.helper_classes.OnClickEventHelper;
@@ -8,7 +6,7 @@ import GUIBuilder.helper_classes.RoundedBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.imageio.*;
+import javax.swing.*;
 
 
 public class Interface extends JFrame implements ActionListener {
@@ -29,8 +27,11 @@ public class Interface extends JFrame implements ActionListener {
     private JButton pickCat;
     private JPanel petPanel;
     private JPanel startPanel;
+    private Cat cat;
+    private Dog dog;
+    private MattHong mattHong;
 
-    public Interface(Pet p) {
+    public Interface() {
 
      JFrame frame = new JFrame("My Talking Hong");
      frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -97,14 +98,21 @@ public class Interface extends JFrame implements ActionListener {
      petButton.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
         public void mousePressed(java.awt.event.MouseEvent e) {
-            String mood = ((MattHong) currentPet).getState();
+            String mood = currentPet.getState();
             imageLabel.setIcon(new ImageIcon("Assets/pet"+mood+".gif"));
         }
     
         @Override
         public void mouseReleased(java.awt.event.MouseEvent e) {
-            String mood = ((MattHong) currentPet).getState();
-            imageLabel.setIcon(getScaledIcon("Assets/"+mood+".png", 100, 100));
+            String mood = currentPet.getState();
+            if(currentPet.getClass() == Cat.class) {
+                System.out.println("Cat mood: " + mood);
+                imageLabel.setIcon(getScaledIcon("Assets/"+mood+".gif", 100, 100));
+            }
+            else {
+                imageLabel.setIcon(getScaledIcon("Assets/"+mood+".png", 100, 100));
+            }
+            
         }
     });
      OnClickEventHelper.setOnClickColor(petButton, Color.decode("#7c6f97"), Color.decode("#bca8e4"));
@@ -124,7 +132,7 @@ public class Interface extends JFrame implements ActionListener {
      petPanel.add(feedButton);
      
      // Pet Name Label
-     petName = new JLabel("");
+     petName = new JLabel("Name: ");
      petName.setBounds(11, 12, 100, 33);
      petName.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      petName.setBackground(Color.decode("#ffe7bf"));
@@ -133,7 +141,7 @@ public class Interface extends JFrame implements ActionListener {
      petPanel.add(petName);
      
      // Pet Breed Label
-     petBreed = new JLabel("");
+     petBreed = new JLabel("Breed: ");
      petBreed.setBounds(11, 54, 100, 33);
      petBreed.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      petBreed.setBackground(Color.decode("#ffe7bf"));
@@ -154,18 +162,21 @@ public class Interface extends JFrame implements ActionListener {
      petPanel.add(goBackButton);
 
      // Output Area
-     outputArea = new JTextArea("");
-     outputArea.setBounds(12, 115, 202, 79);
-     outputArea.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
-     outputArea.setBackground(Color.decode("#ffe7bf"));
-     outputArea.setForeground(Color.decode("#73664e"));
-     outputArea.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
-     outputArea.setEditable(false);
-     OnFocusEventHelper.setOnFocusText(outputArea, "", Color.decode("#000"),   Color.decode("#73664e"));
-     petPanel.add(outputArea);
+    outputArea = new JTextArea("");
+    outputArea.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
+    outputArea.setBackground(Color.decode("#ffe7bf"));
+    outputArea.setForeground(Color.decode("#73664e"));
+    outputArea.setBorder(new RoundedBorder(2, Color.decode("#000"), 1));
+    outputArea.setEditable(false);
+    OnFocusEventHelper.setOnFocusText(outputArea, "", Color.decode("#000"), Color.decode("#73664e"));
+
+    JScrollPane scrollPane = new JScrollPane(outputArea);
+    scrollPane.setBounds(12, 115, 202, 79);
+    scrollPane.setBorder(null); // optional: removes default border
+    petPanel.add(scrollPane);
 
      // Pet Age Label
-     ageLabel = new JLabel("");
+     ageLabel = new JLabel("Age: 0");
      ageLabel.setBounds(121, 12, 100, 33);
      ageLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      ageLabel.setBackground(Color.decode("#ffe7bf"));
@@ -174,7 +185,7 @@ public class Interface extends JFrame implements ActionListener {
      petPanel.add(ageLabel);
      
      // Pet Hunger Label
-     hungerLabel = new JLabel("");
+     hungerLabel = new JLabel("Hunger: 0");
      hungerLabel.setBounds(120, 54, 100, 33);
      hungerLabel.setFont(CustomFontLoader.loadFont("./resources/fonts/Lexend.ttf", 14));
      hungerLabel.setBackground(Color.decode("#ffe7bf"));
@@ -191,6 +202,16 @@ public class Interface extends JFrame implements ActionListener {
      frame.add(petPanel);
      petPanel.setVisible(false);
      
+    }
+
+    public void updatePetInfo() {
+        if (currentPet != null) {
+            petName.setText("Name: " + currentPet.getName());
+            petBreed.setText("Breed: " + currentPet.getClass().getSimpleName());
+            ageLabel.setText("Age: " + currentPet.getAge());
+            hungerLabel.setText("Hunger: " + currentPet.getHunger());
+            
+        }
     }
 
     public static ImageIcon getScaledIcon(String imagePath, int width, int height) {
@@ -212,10 +233,23 @@ public class Interface extends JFrame implements ActionListener {
             startPanel.setVisible(true);
         }
         if(e.getSource() == pickHong){
-            currentPet = new MattHong();
+            System.out.println("You picked Matt Hong!");
+            mattHong = new MattHong();
+            currentPet = mattHong;
+            currentPet.setInterface(this);
             imageLabel.setIcon(getScaledIcon("Assets/MattHappy.png", 100, 100));
             petPanel.setVisible(true);
             startPanel.setVisible(false);
         }
+        if(e.getSource() == pickCat){
+
+            cat = new Cat();
+            currentPet = cat;
+            currentPet.setInterface(this);
+            imageLabel.setIcon(new ImageIcon("Assets/CatHappy.gif"));
+            petPanel.setVisible(true);
+            startPanel.setVisible(false);
+        }
+      
     }
 }

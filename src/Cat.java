@@ -3,15 +3,14 @@ public class Cat extends Pet{
 
     private String breed;
 
-    public Cat(String n, String b){
-        super(n);
-        breed = b;
+    public Cat(){
+        super("Nyan");
     }
         public String getState(){
         if(super.getMood()){
-           return "MattHappy"; 
+           return "CatHappy"; 
         } else {
-            return "MattSad";
+            return "CatSad";
         }
         
     }
