@@ -50,7 +50,12 @@ public abstract class Pet {
     }
 
     public void pet(){
-        happiness += 5;
+        if(happiness < 95){
+            happiness += 5;
+        } else if (happiness < 100){
+            happiness = 100;
+        }
+        
     }
 
     

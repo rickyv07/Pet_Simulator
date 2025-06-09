@@ -30,6 +30,7 @@ public class Interface extends JFrame implements ActionListener {
     private Cat cat;
     private Dog dog;
     private MattHong mattHong;
+    private Timer petTimer;
     
 
     public Interface() {
@@ -99,12 +100,19 @@ public class Interface extends JFrame implements ActionListener {
      petButton.addMouseListener(new java.awt.event.MouseAdapter() {
         @Override
         public void mousePressed(java.awt.event.MouseEvent e) {
+            petTimer = new Timer(200, evt -> {
+                currentPet.pet();
+                updatePetInfo();
+            });
+            petTimer.start();
+    
             String mood = currentPet.getState();
-            imageLabel.setIcon(new ImageIcon("Assets/pet"+mood+".gif"));
+            imageLabel.setIcon(new ImageIcon("Assets/pet" + mood + ".gif"));
         }
     
         @Override
         public void mouseReleased(java.awt.event.MouseEvent e) {
+            petTimer.stop();
             String mood = currentPet.getState();
             if(currentPet.getClass() == Cat.class) {
                 imageLabel.setIcon(new ImageIcon("Assets/CatHappy.gif"));
