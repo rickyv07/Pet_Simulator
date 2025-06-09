@@ -27,7 +27,7 @@ public abstract class Pet {
             }
         };
 
-        timer.scheduleAtFixedRate(task, 2000, 2000);
+        timer.scheduleAtFixedRate(task, 0, 2000);
     }
 
     public void setInterface(Interface gui){
@@ -44,13 +44,16 @@ public abstract class Pet {
         energy += 20;
     }
 
+
     public void sleep(){
         energy = 100;
     }
 
-    public void play(){
-        happiness = 100;
+    public void pet(){
+        happiness += 5;
     }
+
+    
 
     public boolean getMood(){
         if(happiness>50){
@@ -69,6 +72,10 @@ public abstract class Pet {
     }
 
     public int getHunger(){
+        if(food < 50){
+            
+            System.out.print("I'm hungry!");
+        }
         return food;
     }
 
@@ -78,10 +85,7 @@ public abstract class Pet {
     public abstract String getState(); 
 
     protected void decrease(){
-        food -= 2;
-        if(food < 50){
-            System.out.print("I'm hungry!");
-        }
+        food -= 4;
         energy -=4;
         happiness -= 3;
     }
